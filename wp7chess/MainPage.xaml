@@ -1,0 +1,54 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="wp7chess.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:wp7chess"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <!--Background="#FF131313"-->
+        <!--<Image Source="wp7chess_bg.png" Opacity="0.2" />-->
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text=" " Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="wp7chess" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <Image Source="chess_bg.png" Width="180" Height="200" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,20,0" />
+        
+        <local:ChessBoard Grid.Row="1" x:Name="chessBoard" Width="480" Height="480" Margin="0,-73,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!-- Use in the "normal" silverlight version -->
+        <local:PlayerSelector Width="0" Height="0" x:Name="blackSelector" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,280,0" />
+        <local:PlayerSelector Width="0" Height="0" x:Name="whiteSelector" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,280,0" />
+        <TextBlock Width="0" Height="0"  HorizontalAlignment="Right" Margin="0,0,87,60" VerticalAlignment="Bottom" TextWrapping="Wrap" x:Name="whiteNodesTitle">
+        	<Run FontFamily="Portable User Interface" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000" Text="White Nodes/Sec:"/>
+        </TextBlock>
+        <TextBlock Width="0" Height="0"  HorizontalAlignment="Right" Margin="0,38,87,0" VerticalAlignment="Top" TextWrapping="Wrap" x:Name="blackNodesTitle">
+        	<Run FontFamily="Portable User Interface" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000" Text="Black Nodes/Sec:"/>
+        </TextBlock>
+        <TextBlock Width="0" Height="0"  HorizontalAlignment="Right" Margin="0,64,87,0" VerticalAlignment="Top" TextWrapping="Wrap" x:Name="blackNodesSec">
+        	<Run Text="" FontFamily="Portable User Interface" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000"/>
+        </TextBlock>
+        <TextBlock Width="0" Height="0"  HorizontalAlignment="Right" Margin="0,0,87,34" VerticalAlignment="Bottom" TextWrapping="Wrap" x:Name="whiteNodesSec">
+        	<Run Text="" FontFamily="Portable User Interface" FontSize="14.666666984558106" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Foreground="#FF000000"/>
+        </TextBlock>
+    </Grid>
+</Grid>
+
+</phone:PhoneApplicationPage>
